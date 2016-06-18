@@ -5,9 +5,9 @@ default: &default
 
   # Important configs for cloud9, change password value
   # to what you entered in the previous psql step.
-  template: template0
-  username: ubuntu
-  password: password
+  #template: template0
+  #username: ubuntu
+  #password: password
 
 development:
   <<: *default
