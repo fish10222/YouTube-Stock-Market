@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.4'
-gem 'rails_12factor'
-=======
+ruby '2.1.5'
 # puma
 gem 'puma'
->>>>>>> 4afe0c27a52acaf49443313999bf93fcbf486d98
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgress as the database for Active Record
