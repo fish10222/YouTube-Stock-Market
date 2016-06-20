@@ -25,6 +25,9 @@ module SessionsHelper
     end
   end
 
+  def current_user?(user)
+    user == current_user
+  end
 
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
@@ -37,6 +40,7 @@ module SessionsHelper
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
+
 
   def log_out
     forget(current_user)
