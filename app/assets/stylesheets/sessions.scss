@@ -10,10 +10,23 @@ div.header {
   width:100%;
 }
 
+div.button{
+  background-color: #B90000;
+  height:80px;
+  width:180px;
+  color:white;
+  font-size: 25px;
+  border: none;
+  border-bottom:solid black;
+  border-right:solid black;
+  border-width: 5px;
+}
+
 header {
   margin:0px;
 
 }
+
 body{
   margin:0px;
 }
