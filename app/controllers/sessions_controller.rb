@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   include SessionsHelper
 
+  def index
+  end
+
   def new
   end
 
