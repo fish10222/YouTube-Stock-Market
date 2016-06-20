@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   include SessionsHelper
   before_action :admin_user,     only: [ :index, :destroy]
 
+  def index
+    @user = User.all
+  end
+
+
   def show
     @user = User.find(params[:id])
   end
@@ -10,8 +15,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def index
-   @users = User.all
+  def edit
+    @user = User.find(params[:id])
   end
 
   def create
