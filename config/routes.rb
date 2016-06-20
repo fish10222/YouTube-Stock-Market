@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get    'index'   => 'users#index'
+  get 'edit' => 'users#edit'
   resources :users
   resources :sessions
 
