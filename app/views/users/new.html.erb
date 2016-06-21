@@ -1,11 +1,25 @@
 
-<!-- <head>
-<title>YSX Sign Up</title>
-</head> -->
+<head>
+  <title> YSX - The YouTube Stock Market </title>
+</head>
 
-<% provide(:title, 'Sign up') %>
+<div class="header">
+
+  <a href="https://intense-wildwood-39190.herokuapp.com/">
+    <div class="button" style="float:left">
+      <span><p>Home</p></span>
+    </div>
+  </a>
+
+<a href="https://intense-wildwood-39190.herokuapp.com/login">
+<div class="button" style="float:right">
+  <span><p>Login</p></span>
+</div>
+</a>
+</div>
+
 <h1>Sign up</h1>
-<%= render 'layouts/header' %>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
