@@ -1,6 +1,27 @@
-<% provide(:title, @user.name) %>
-<%= render 'layouts/header' %>
+<header>
+  <title> YSX - The YouTube Stock Market </title>
+</header>
 
+<div class="header">
+
+  <a href="https://intense-wildwood-39190.herokuapp.com/">
+    <div class="button" style="float:left">
+      <span><p>Home</p></span>
+    </div>
+  </a>
+
+  <a href="https://intense-wildwood-39190.herokuapp.com/edit" >
+  <div class="button" style="float:right">
+    <span><p>Sign Up</p></span>
+  </div>
+</a>
+<a href="https://intense-wildwood-39190.herokuapp.com/login">
+<div class="button" style="float:right">
+  <span><p>Login</p></span>
+</div>
+</a>
+
+</div>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
