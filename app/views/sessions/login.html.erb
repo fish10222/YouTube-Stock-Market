@@ -1,8 +1,21 @@
-<h1>Sessions#login</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<head>
+  <title> YSX - The YouTube Stock Market </title>
+</head>
 
-<% provide(:title, "Log in") %>
+<!--<div class="header">
+
+  <div class="button" style="float:left">
+    <span><p><%= link_to "Home", home_path %></p></span>
+  </div>
+
+  <div class="button" style="float:right">
+    <span><p><%= link_to "Sign up", signup_path %></p></span>
+  </div>
+  
+</div>-->
 <%= render 'layouts/header' %>
+
+<div class="form">
 <h1>Log in</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -23,6 +36,7 @@
     <% end %>
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-    <p>INDEX? <%= link_to "Sign up now!", index_path %></p>
   </div>
+</div>
+
 </div>

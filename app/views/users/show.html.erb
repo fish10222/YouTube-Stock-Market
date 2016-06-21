@@ -1,33 +1,16 @@
-<header>
+<head>
   <title> YSX - The YouTube Stock Market </title>
-</header>
+</head>
 
-<div class="header">
+<%= render 'layouts/header' %>
 
-  <a href="https://stark-reef-52824.herokuapp.com/">
-    <div class="button" style="float:left">
-      <span><p>Home</p></span>
-    </div>
-  </a>
+<div class="profile_sidebar">
+  <div class="profile_picture"></div>
+  <span><p><%= @user.name %><br>
+    Capital: $100,000<br>
+  </p>
 
-  <a href="https://stark-reef-52824.herokuapp.com/signup" >
-  <div class="button" style="float:right">
-    <span><p>Sign Up</p></span>
-  </div>
-</a>
-<a href="https://stark-reef-52824.herokuapp.com/login">
-<div class="button" style="float:right">
-  <span><p>Login</p></span>
-</div>
-</a>
 
-</div>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+
+  </span>
 </div>

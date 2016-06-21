@@ -26,16 +26,23 @@ span{
     text-align:center;
     vertical-align: middle;
     height:65px;
-    width:180px;
+    width:100px;
 }
 
 a {
   text-decoration: none;
 }
 
-header {
+head {
   margin:0px;
 
+}
+
+div.video_area {
+  margin:10px;
+  width:1000px;
+  height:600px;
+  background-color: #DCDCDC;
 }
 
 body{
@@ -43,3 +50,7 @@ body{
   background-color: lightblue;
 }
 
+div.form {
+  margin-left: 50px;
+  margin-top: 10px;
+}

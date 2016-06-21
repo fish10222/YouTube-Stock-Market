@@ -4,7 +4,7 @@
 <%= render 'layouts/header' %>
 <br>
 <ul class="users">
-  <% @users.each do |user| %>
+  <% @user.each do |user| %>
     <li>
       <%= link_to user.name, user %>
       <% if current_user.admin? %>

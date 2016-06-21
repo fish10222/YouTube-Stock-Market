@@ -1,30 +1,67 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <% if logged_in? %>
-          <% if current_user.admin? %>
-            <li><%= link_to "Users", users_path %></li>
-          <% end %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: "delete" %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
+<style type="text/css">
+  div.header {
+  background-color: #B90000;
+  height:65px;
+  margin:0px;
+  padding:0px;
+  display: inline-block;
+  width:100%;
+  font-family: Calibri;
+  font-size: 100px;
+}
+
+div.button{
+  background-color: #B90000;
+  height:65px;
+  width:100px;
+  color:white;
+  font-size: 25px;
+  border: none;
+  display:inline-block;
+}
+span{
+    text-align:center;
+    vertical-align: middle;
+    height:65px;
+    width:100px;
+}
+</style>
+
+<div class="header">
+
+  <div class="button" style="float:left">
+    <span><p><%= link_to "Home", home_path %></p></span>
   </div>
-</header>
+
+  <% if logged_in? %>
+
+    <div class="button" style="float:right">
+      <span><p><%= link_to "Log out", logout_path, method: "delete" %></p></span>
+    </div>
+
+    <div class="button" style="float:right">
+      <span><p><%= link_to "Profile", current_user %></p></span>
+    </div>
+
+    <% if current_user.admin? %>
+      <div class="button" style="float:right">
+        <span><p><%= link_to "Users", users_path %></p></span>
+      </div>
+    <% end %>
+
+
+
+  <%else %>
+
+    <div class="button" style="float:right">
+      <span><p><%= link_to "Sign up", signup_path %></p></span>
+    </div>
+
+    <div class="button" style="float:right">
+      <span><p><%= link_to "Login", login_path %></p></span>
+    </div>
+
+  <%end%>
+
+
+</div>
