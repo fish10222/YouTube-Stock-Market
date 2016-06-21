@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 ruby '2.2.4'
-
 # puma
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
