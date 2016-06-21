@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root 'sessions#home'
   get    'signup'  => 'users#new'
   get    'login'   => 'sessions#login'
+  get 'home' => 'sessions#home'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get    'index'   => 'users#index'
