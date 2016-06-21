@@ -3,20 +3,18 @@
   <title> YSX - The YouTube Stock Market </title>
 </head>
 
-<div class="header">
+<!--<div class="header">
 
-  <a href="https://intense-wildwood-39190.herokuapp.com/">
-    <div class="button" style="float:left">
-      <span><p>Home</p></span>
-    </div>
-  </a>
+  <div class="button" style="float:left">
+    <span><p><%= link_to "Home", home_path %></p></span>
+  </div>
 
-<a href="https://intense-wildwood-39190.herokuapp.com/login">
-<div class="button" style="float:right">
-  <span><p>Login</p></span>
-</div>
-</a>
-</div>
+  <div class="button" style="float:right">
+    <span><p><%= link_to "Login", login_path %></p></span>
+  </div>
+  
+</div>-->
+<%= render 'layouts/header' %>
 
 <h1>Sign up</h1>
 
