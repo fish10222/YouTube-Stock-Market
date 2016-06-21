@@ -3,13 +3,23 @@
 <%= render 'layouts/header' %>
 <br>
 <ul class="users">
+  <% countAll = 0 %>
+  <% countAdmin = 0 %>
   <% @user.each do |user| %>
+    <% countAll = countAll+1 %>
     <li>
       <%= link_to user.name, user %>
       <% if current_user.admin? %>
-          | <%= link_to "delete", user, method: :delete,
+          <% if user.admin? %>
+              <% countAdmin += 1%>
+          <% end %>
+          <%= link_to "delete", user, method: :delete,
                                         data: { confirm: "You sure?" } %>
       <% end %>
     </li>
   <% end %>
+
+  <br>
+  Total number of users: <%= countAll %> <br>
+  Total number of administrators: <%= countAdmin %>
 </ul>
