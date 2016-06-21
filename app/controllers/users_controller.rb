@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include SessionsHelper
+  include ApplicationHelper
   before_action :admin_user,     only: [ :index, :destroy]
 
   def index
@@ -24,7 +25,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user
     else
-      render 'new'
+      flash[:danger] = "Creating account failed"
+      redirect_to signup_path
     end
   end
 
@@ -40,7 +42,7 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      
+      redirect_to(root_url) unless current_user.admin?
     end
 
 end

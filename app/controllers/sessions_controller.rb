@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   include SessionsHelper
+  include ApplicationHelper
 
   def index
   end
@@ -16,8 +17,8 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       # Create an error message.
-       flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+       flash.now[:error] = 'Invalid email/password combination'
+      render 'login'
     end
   end
 
