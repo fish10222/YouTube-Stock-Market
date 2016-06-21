@@ -31,6 +31,7 @@ a {
 
 head {
   margin:0px;
+  padding:0px;
 }
 
 div.video_area {
@@ -42,6 +43,7 @@ div.video_area {
 
 body{
   margin:0px;
+  padding:0px;
 }
 
 div.form {
@@ -55,13 +57,16 @@ div.profile_sidebar {
   height:100%;
   background-color: #DCDCDC;
   margin:0px;
+  margin-top:0px;
+  padding-top:10px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom:10px;
 }
 
 div.profile_picture {
   width:180px;
   height:180px;
   background-color: black;
-  margin:10px;
-  margin-top:10px;
   border: none;
 }
