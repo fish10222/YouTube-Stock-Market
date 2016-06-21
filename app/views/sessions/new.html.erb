@@ -1,8 +1,9 @@
-<body>
+
 <header>
   <title> YSX - The YouTube Stock Market </title>
 </header>
 
+<body>
 <div class="header">
 
   <a href="https://intense-wildwood-39190.herokuapp.com/">
@@ -23,11 +24,6 @@
 </a>
 
 </div>
-
-<h1>Log in</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
 
   <% provide(:title, "Log in") %>
   <%= render 'layouts/header' %>
