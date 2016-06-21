@@ -1,13 +1,66 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 div.header {
   background-color: #B90000;
-  height:80px;
+  height:65px;
   margin:0px;
   padding:0px;
   display: inline-block;
   width:100%;
+  font-family: Calibri;
+  font-size: 100px;
+}
+
+div.button{
+  background-color: #B90000;
+  height:65px;
+  width:100px;
+  color:white;
+  font-size: 25px;
+  border: none;
+  display:inline-block;
+}
+span{
+    text-align:center;
+    vertical-align: middle;
+    height:65px;
+    width:100px;
+}
+
+a {
+  text-decoration: none;
+}
+
+head {
+  margin:0px;
+
+}
+
+div.video_area {
+  margin:10px;
+  width:1000px;
+  height:600px;
+  background-color: #DCDCDC;
+}
+
+body{
+  margin:0px;
+}
+
+div.form {
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+
+div.profile_sidebar {
+  width:200px;
+  height:100%;
+  background-color: #DCDCDC;
+}
+
+div.profile_picture {
+  width:180px;
+  height:180px;
+  background-color: black;
+  margin:10px;
+  border: none;
 }
