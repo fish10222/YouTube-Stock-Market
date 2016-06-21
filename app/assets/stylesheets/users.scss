@@ -31,7 +31,6 @@ a {
 
 head {
   margin:0px;
-
 }
 
 div.video_area {
@@ -55,6 +54,7 @@ div.profile_sidebar {
   width:200px;
   height:100%;
   background-color: #DCDCDC;
+  margin:0px;
 }
 
 div.profile_picture {
@@ -62,5 +62,6 @@ div.profile_picture {
   height:180px;
   background-color: black;
   margin:10px;
+  margin-top:10px;
   border: none;
 }
