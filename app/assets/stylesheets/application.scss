@@ -1,3 +1,6 @@
+@import "bootstrap";
+
+
 div.header {
   background-color: #B90000;
   height:65px;
@@ -31,7 +34,7 @@ a {
 
 head {
   margin:0px;
-  padding:0px;
+
 }
 
 div.video_area {
@@ -43,32 +46,10 @@ div.video_area {
 
 body{
   margin:0px;
-  padding:0px;
+  background-color: lightblue;
 }
 
 div.form {
   margin-left: 50px;
   margin-top: 10px;
-}
-
-
-div.profile_sidebar {
-  width:200px;
-  height:100%;
-  background-color: #DCDCDC;
-  margin:0px;
-  margin-top:0px;
-  padding-top:10px;
-  padding-left:10px;
-  padding-right: 0px;
-  padding-bottom:10px;
-}
-
-div.profile_picture {
-  width:180px;
-  height:180px;
-  background-color: black;
-  margin:0px;
-  padding:0px;
-  border: none;
 }

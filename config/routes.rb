@@ -4,15 +4,11 @@ Rails.application.routes.draw do
   get    'home'    => 'sessions#home'
   get    'login'   => 'sessions#login'
   get 'home' => 'sessions#home'
-  get 'auth/:provider/callback' => 'sessions#create'
-  get 'auth/failure', to: redirect('/')
   post   'login'   => 'sessions#create'
-  #get 'logout', => 'sessions#destroy' as: 'logout'
   delete 'logout'  => 'sessions#destroy'
   get    'index'   => 'users#index'
   get 'edit' => 'users#edit'
   resources :users
-  resources :videos
   resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
