@@ -1,4 +1,22 @@
-<% if @user.errors.any? %>
+<% if object.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title">The following errors were found while submitting the form:</h3>
+    </div>
+
+    <div class="panel-body">
+      <ul>
+        <% object.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+
+<%
+=begin %>
   <div id="error_explanation">
     <div class="alert alert-danger">
       The form contains <%= pluralize(@user.errors.count, "error") %>.
@@ -10,3 +28,5 @@
     </ul>
   </div>
 <% end %>
+<%
+=end %>
