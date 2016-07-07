@@ -8,11 +8,11 @@ class SessionsController < ApplicationController
   def new
   end
 
+=begin
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
-      log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
@@ -21,6 +21,20 @@ class SessionsController < ApplicationController
       render 'login'
     end
   end
+
+  user = User.from_omniauth(env["omniauth.auth"])
+=end
+
+ def create
+   user = User.from_omniauth(env["omniauth.auth"])
+   log_in user
+   if logged_in?
+     flash[:success] = "Welcome, #{user.name}!"
+   else
+     flash[:warning] = "There was an error while trying to authenticate you..."
+   end
+   redirect_to root_path
+ end
 
   def destroy
     log_out if logged_in?

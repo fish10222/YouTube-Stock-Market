@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @user = User.all
   end
 
-
   def show
     @user = User.find(params[:id])
   end
@@ -37,9 +36,11 @@ class UsersController < ApplicationController
   end
 
   private
+
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
+
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?

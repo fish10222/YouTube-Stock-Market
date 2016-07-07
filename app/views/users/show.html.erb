@@ -3,13 +3,12 @@
 </head>
 
 
-<div class="profile_sidebar">
-  <div class="profile_picture"></div>
+<div class="profile_sidebar" style="margin: 30px">
+  <div class="row-picture">
+    <img class="circle"  alt="icon">
+  </div>
   <span><p><%= @user.name %><br>
-    Capital: $100,000<br>
+        Capital: $<%=@user.capital%><br>
   </p>
-
-
-
   </span>
 </div>

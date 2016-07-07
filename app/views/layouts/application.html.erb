@@ -9,8 +9,8 @@
 <body>
   <%= render 'layouts/header' %>
   <% flash.each do |type, message| %>
-  <div class="alert <%= bootstrap_class_for(type) %> fade in">
-    <button class="close" data-dismiss="alert">×</button>
+  <div class="alert <%= bootstrap_class_for(type) %> fade in" style="color:blue">
+    <button class="close" style="color:red" data-dismiss="alert">×</button>
     <%= message %>
   </div>
 <% end %>

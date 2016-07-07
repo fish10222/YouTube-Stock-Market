@@ -1,55 +1,6 @@
-@import "bootstrap";
-
-
-div.header {
-  background-color: #B90000;
-  height:65px;
-  margin:0px;
-  padding:0px;
-  display: inline-block;
-  width:100%;
-  font-family: Calibri;
-  font-size: 100px;
-}
-
-div.button{
-  background-color: #B90000;
-  height:65px;
-  width:100px;
-  color:white;
-  font-size: 25px;
-  border: none;
-  display:inline-block;
-}
-span{
-    text-align:center;
-    vertical-align: middle;
-    height:65px;
-    width:100px;
-}
-
-a {
-  text-decoration: none;
-}
-
-head {
-  margin:0px;
-
-}
-
-div.video_area {
-  margin:10px;
-  width:1000px;
-  height:600px;
-  background-color: #DCDCDC;
-}
-
-body{
-  margin:0px;
-  background-color: lightblue;
-}
-
-div.form {
-  margin-left: 50px;
-  margin-top: 10px;
+.nav > li > span {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #9d9d9d;
 }
