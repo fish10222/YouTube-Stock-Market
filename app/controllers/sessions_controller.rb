@@ -3,9 +3,11 @@ class SessionsController < ApplicationController
   include ApplicationHelper
 
   def index
+    @user = User.all
   end
 
   def new
+    @user = User.new
   end
 
 =begin
@@ -26,7 +28,8 @@ class SessionsController < ApplicationController
 =end
 
  def create
-   user = User.from_omniauth(env["omniauth.auth"])
+   user = User.from_omniauth(env["omniauth.auth"]) # I think this line causes an error when
+   # logging in normally without Google login.
    log_in user
    if logged_in?
      flash[:success] = "Welcome, #{user.name}!"
