@@ -3,29 +3,12 @@
   <title> YSX - The YouTube Stock Market </title>
 </head>
 
-<!--<div class="header">
-
-  <div class="button" style="float:left">
-    <span><p><%= link_to "Home", home_path %></p></span>
-  </div>
-
-  <div class="button" style="float:right">
-    <span><p><%= link_to "Login", login_path %></p></span>
-  </div>
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 195c26d928b75761eaf411ec718f08903d22dfc4
-</div>-->
-<%= render 'layouts/header' %>
-
 <h1>Sign up</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object:@user %>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -38,6 +21,8 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <br>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>

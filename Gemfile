@@ -1,11 +1,20 @@
 source 'https://rubygems.org'
 ruby '2.2.4'
+
+gem 'bootstrap-material-design'
+# youtube gem
+gem "yt", "~>0.25.39"
+gem 'rails-observers'
+# google login gem
+gem "omniauth-google-oauth2", "~> 0.2.1"
 # puma
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgress as the database for Active Record
 gem 'pg'
+# Use bootstrap to help styling
+gem 'bootstrap-sass',       '3.2.0.0'
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
