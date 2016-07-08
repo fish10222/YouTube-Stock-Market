@@ -6,24 +6,17 @@
   <% countAdmin = 0 %>
   <% @user.each do |user| %>
     <% countAll = countAll+1 %>
-    <% if current_user.admin? %>
-    <div class="admin">
-      <%= else %>
-      <div class="user">
-        <%= end %>
     <li>
       <%= link_to user.name, user %>
-      <%= if current_user.admin? %>
-          <%= if user.admin? %>
+      <% if current_user.admin? %>
+          <% if user.admin? %>
               <% countAdmin += 1%>
-          <%= end %>
-          <br>
+          <% end %>
           <%= link_to "delete", user, method: :delete,
                                         data: { confirm: "You sure?" } %>
-      <%= end %>
+      <% end %>
     </li>
-  </div>
-  <%= end %>
+  <% end %>
 
   <br>
   Total number of users: <%= countAll %> <br>
