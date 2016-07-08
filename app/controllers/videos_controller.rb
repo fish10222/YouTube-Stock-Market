@@ -1,4 +1,6 @@
 class VideosController < ApplicationController
+  include SessionsHelper
+  include ApplicationHelper
 
   def index
     @videos = Video.order('created_at DESC')
@@ -9,7 +11,9 @@ class VideosController < ApplicationController
   end
 
   def create
+  @user = current_user
   @video = Video.new(video_params)
+  @video.user_id = @user.id
     if @video.save
       flash[:success] = 'Video added!'
       redirect_to videos_path

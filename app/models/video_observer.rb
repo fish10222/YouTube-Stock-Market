@@ -1,4 +1,6 @@
 class VideoObserver < ActiveRecord::Observer
+  include SessionsHelper
+  include ApplicationHelper
 
   def before_save(resource)
     video = Yt::Video.new url: resource.link
