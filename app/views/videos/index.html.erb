@@ -28,6 +28,8 @@
                     <br>
                     <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
                     <br>
+                    <%= link_to "delete", video, method: :delete,
+                                                  data: { confirm: "You sure?" } %>
                   </p>
                 </div>
               </div>
