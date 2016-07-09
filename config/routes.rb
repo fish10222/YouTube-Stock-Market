@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get    'index'   => 'users#index'
   get 'edit' => 'users#edit'
-  get 'userlogin' => 'users#login'
+  get 'usercreate' => 'users#new'
+  post 'usercreate' => 'users#create'
+  get 'userlogin' => ''
   resources :users
   resources :videos
   resources :sessions

@@ -7,7 +7,7 @@
 <h1 style="margin-left:40px;">Log in</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+    <%= form_for(:user, url: userlogin_path) do |f| %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
