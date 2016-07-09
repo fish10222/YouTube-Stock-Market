@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_many :video
   attr_accessor :remember_token
-=begin
-  before_save { self.email = email.downcase }
+
+  before_save { self.email = email.downcase }     #seems to work for sign up when i uncommented this, not sure if google login is still working or not
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-=end
+
 
   # Google login authentication
   def self.from_omniauth(auth)
