@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'edit' => 'users#edit'
   get 'usercreate' => 'users#new'
   post 'usercreate' => 'users#create'
-  get 'userlogin' => ''
+  get 'userlogin' => 'users#login'
   resources :users
   resources :videos
   resources :sessions
