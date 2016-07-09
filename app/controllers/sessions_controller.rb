@@ -23,8 +23,6 @@ class SessionsController < ApplicationController
       render 'login'
     end
   end
-
-  user = User.from_omniauth(env["omniauth.auth"])
 =end
 
  def create
