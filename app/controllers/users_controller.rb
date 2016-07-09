@@ -35,21 +35,6 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  def login
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
-    else
-      # Create an error message.
-       flash.now[:error] = 'Invalid email/password combination'
-      render 'login'
-    end
-  end
-  user = User.from_omniauth(env["omniauth.auth"])
-  end
-
   private
 
     def user_params
