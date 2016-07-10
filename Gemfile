@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.2.4'
 
+gem 'devise'
 gem 'bootstrap-material-design'
 # youtube gem
 gem "yt", "~>0.25.39"
+gem 'yourub'
 gem 'rails-observers'
 # google login gem
 gem "omniauth-google-oauth2", "~> 0.2.1"
