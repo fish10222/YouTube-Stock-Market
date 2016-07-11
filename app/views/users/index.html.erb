@@ -1,5 +1,31 @@
 <% provide(:title, 'All users') %>
 
+<% countAll = 0 %>
+<% countAdmin = 0 %>
+<% @user.each do |user| %>
+  <% countAll = countAll+1 %>
+  <% if user.admin? %>
+    <% countAdmin += 1%>
+    <div class="adminbox">
+      <span><%= link_to user.name, user %></span>
+      <span><%= link_to "delete", user, method: :delete,
+                data: { confirm: "You sure?" } %></span>
+    </div>
+  <% else %>
+  <div class="userbox">
+    <span><%= link_to user.name, user %></span>
+    <span><%= link_to "delete", user, method: :delete,
+              data: { confirm: "You sure?" } %></span>
+  </div>
+  <% end %>
+
+<% end %> 
+  <br>
+  Total number of users: <%= countAll %> <br>
+  Total number of administrators: <%= countAdmin %>
+
+
+<!--
 <br>
 <ul class="users">
   <% countAll = 0 %>
@@ -21,4 +47,4 @@
   <br>
   Total number of users: <%= countAll %> <br>
   Total number of administrators: <%= countAdmin %>
-</ul>
+</ul> -->
