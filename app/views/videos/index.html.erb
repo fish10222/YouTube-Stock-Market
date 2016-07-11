@@ -27,9 +27,9 @@
                     <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
                      <p>
 
-                      <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
+                      <span>Likes:</span> <%= video.likes %>
                       <br>
-                      <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
+                      <span>Dislikes:</span> <%= video.dislikes %>
                       <br>
 
                       <% upid = video.user_id%>
