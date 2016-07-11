@@ -8,6 +8,6 @@
 
 User.create!(name:  "Administer",
              email: "admin@ysx.com",
-             password:              "admin",
-             password_confirmation: "admin",
+             password:              "adminfoobar",
+             password_confirmation: "adminfoobar",
              admin: true)
