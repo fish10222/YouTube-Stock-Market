@@ -32,10 +32,9 @@
                     <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
                     <br>
 
-
                       <% upid = video.user_id%>
-                      <% @user = User.find_by(id: upid)%>
-                      <%= link_to "Uploader: #{@user.name}", @user%>
+                      <% @uploader = User.find_by(id: upid)%>
+                      <%= link_to "Uploader: #{@uploader.name}", @uploader%>
                       <br>
                       <%= link_to "delete", video, method: :delete,
                                                   data: { confirm: "You sure?" } %>
