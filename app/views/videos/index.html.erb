@@ -30,8 +30,9 @@
                     <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
                     <br>
 
-                    <% if user.admin? %>
-                    <%= link_to "delete", video, method: :delete,
+                    <% @user = current_user %>
+                    <% if @user.admin? %>
+                      <%= link_to "delete", video, method: :delete,
                                                   data: { confirm: "You sure?" } %>
                     <% end %>
 
