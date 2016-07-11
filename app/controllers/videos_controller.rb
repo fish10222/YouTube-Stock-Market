@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   include ApplicationHelper
 
   def index
-    @videos = Video.all.order('created_at DESC')
+    @videos = Video.order('created_at DESC')
   end
 
   def new
