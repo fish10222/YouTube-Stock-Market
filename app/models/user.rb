@@ -1,16 +1,20 @@
 class User < ActiveRecord::Base
   has_many :video
   attr_accessor :remember_token
-=begin
-  before_save { self.email = email.downcase }
+  before_save { self.email = email.downcase }     #seems to work for sign up when i uncommented this, not sure if google login is still working or not
+
+
+
+  # validation for normal login
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
-=end
+                      format: { with: VALID_EMAIL_REGEX },
+                      uniqueness: { case_sensitive: false }
+  has_secure_password if :normal_login?
+  validates :password, presence: true, length: { minimum: 6 } if :normal_login?
+
+
 
   # Google login authentication
   def self.from_omniauth(auth)
@@ -21,10 +25,10 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.password = Devise.friendly_token[0,20]
       user.save!
     end
-  end
-
+ end
 
   # Returns the hash digest of the given string.
   def User.digest(string)

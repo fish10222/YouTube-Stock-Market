@@ -15,12 +15,12 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.label :remember_me, class: "radio" do %>
         <%= f.check_box :remember_me %>
         <span>Remember me on this computer</span>
       <% end %>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Log in", class: "btn btn-primary", :name => 'normal_login' %>  <!-- Added name tag to prevent from accessing omniauth from google login-->
     <% end %>
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>

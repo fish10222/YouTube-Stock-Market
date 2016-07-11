@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   include SessionsHelper
   include ApplicationHelper
+  include UsersHelper
   before_action :admin_user,     only: [ :index, :destroy]
 
   def index
@@ -22,6 +23,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      user = @user
+      log_in user
       redirect_to @user
     else
       flash[:danger] = "Creating account failed"
@@ -34,6 +37,8 @@ class UsersController < ApplicationController
     flash[:success] = "User deleted"
     redirect_to users_url
   end
+
+
 
   private
 
