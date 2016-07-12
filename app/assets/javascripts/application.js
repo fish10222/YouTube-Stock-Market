@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require bootstrap-material-design
-
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
