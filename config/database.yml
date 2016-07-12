@@ -11,15 +11,11 @@ default: &default
 
 development:
   <<: *default
-  database: youtube_development
-  username: postgres
-  password: Cloud7831
+  database: youtube__development
 
 test:
   <<: *default
   database: youtube_test
-  username: postgres
-  password: Cloud7831
 
 production:
   <<: *default
