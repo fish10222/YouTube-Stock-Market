@@ -1,7 +1,8 @@
 YSX - The YouTube Stock Market
 Summer 2016		Group 1
-06/18/2016,	YSX version 1.0 User Login and Basic Features
-Git link: https://github.com/fish10222/YouTube-Stock-Market.git
+
+Note: To test the features for admin users, please use "administrator@ysxadmin.org" and "ysxadminword" to login the admin account.
+
 Project Abstract
 YSX is a Stock Market simulator that uses a YouTube video’s views over the past day as a currency. Users are able to buy and sell YouTube videos they believe will rise in popularity to showcase their knowledge of what videos are the next hottest thing! YSX is ideal for YouTube users who enjoy browsing YouTube videos or sharing them with friends.
 Overview
