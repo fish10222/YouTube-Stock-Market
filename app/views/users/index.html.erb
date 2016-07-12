@@ -7,15 +7,15 @@
 <ul class="users">
   <% countAll = 0 %>
   <% countAdmin = 0 %>
-  <% @user.in_groups_of(10) do |group| %>
+  <% @user.in_groups_of(3) do |group| %>
     <div class="row">
     <% countAll = countAll+1 %>
       <% group.each do |user| %>
         <%if user %>
           <%if user.admin? %>
-                <div class="panel panel-sucsess" style =  "display:inline-block">
-                  <div class="panel-heading">
-                    <%= link_to user.name, user %>
+                <div class="panel panel-primary" style = "display:inline-block">
+                  <div class="panel-heading" style="text-color:white">
+                    <h3 class="panel-title"><%= link_to user.name, user %></h3>
                   </div>
                   <div class="panel-body">
                   <% if current_user.admin? %>
@@ -30,7 +30,7 @@
          <% else %>
               <div class="panel panel-info" style = "display:inline-block">
                 <div class="panel-heading">
-                  <%= link_to user.name, user %>
+                  <h3 class="panel-title"><%= link_to user.name, user %></h3>
                 </div>
                 <div class="panel-body">
                 <% if current_user.admin? %>
