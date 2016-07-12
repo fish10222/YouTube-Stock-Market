@@ -3,7 +3,12 @@
 </head>
 
 
+
 <!--<div class="profile_sidebar" style="margin: 30px">
+=======
+<div class="well", style = "margin:35px">
+<div class="profile_sidebar" style="margin: 30px">
+>>>>>>> c1690034ffbd2fb688976d334c5a1dbccf423e2d
   <div class="row-picture">
     <img class="circle"  alt="icon">
   </div>
@@ -11,8 +16,9 @@
         Capital: $<%=@user.capital%><br>
   </p>
   </span>
-</div>-->
-
+<<<<<<< HEAD
+</div>
+-->
 
 <div class="col-lg-6 col-sm-6" style="left: 25%;">
     <div class="card hovercard">
@@ -33,13 +39,13 @@
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                <div class="hidden-xs">Favorites</div>
+            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                <div class="hidden-xs">Items</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                <div class="hidden-xs">Items</div>
+            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                <div class="hidden-xs">Videos</div>
             </button>
         </div>
     </div>
@@ -50,12 +56,55 @@
           <h3>$:<%=@user.capital%></h3>
         </div>
         <div class="tab-pane fade in" id="tab2">
-          <h3>This is tab 2</h3>
+          <h3>Placeholder</h3>
         </div>
         <div class="tab-pane fade in" id="tab3">
-          <h3>This is tab 3</h3>
+         	 <div class="well", style = "margin:35px">
+			  <% @videos = Video.where(user_id: @user.id)%>
+			  <% if @videos.any? %>
+			    <div class="container">
+			      <h1>User videos</h1>
+			        <% @videos.in_groups_of(3) do |group| %>
+			          <div class="row">
+			            <% group.each do |video| %>
+			              <% if (video)%>
+			                <div class="col-md-4">
+			                  <div class="yt_video thumbnail">
+			                    <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
+			                                        class: 'img-rounded'),
+			                              "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
+			                    <div class="caption">
+			                      <h5><%= video.title %></h5>
+			                      <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
+			                       <p>
+
+			                        <span>Likes:</span> <%= video.likes %>
+			                        <br>
+			                        <span>Dislikes:</span> <%= video.dislikes %>
+			                        <br>
+
+			                        <%= link_to "delete", video, method: :delete,
+			                                                      data: { confirm: "You sure?" } %>
+			                     </p>
+			                  </div>
+			                </div>
+			              </div>
+			            <% end %>
+			          <% end %>
+			        </div>
+			       <% end %>
+			    <%else%>
+			        <h2>You don't have any videos yet. <br> <%= link_to "Click here to add more!", new_video_path%></h2>
+
+			    <% end %>
+				</div>
+			</div>
+
         </div>
       </div>
     </div>
     
 </div>
+
+
+
