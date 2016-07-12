@@ -11,15 +11,14 @@
 // about supported directives.
 //
 //= require bootstrap-material-design
-//= require bootstrap
+
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require_tree .
 
 
 
-
-//this is for Profile tab color switch/
 $(document).ready(function() {
 $(".btn-pref .btn").click(function () {
     $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
