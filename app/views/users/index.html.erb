@@ -4,18 +4,45 @@
 <ul class="users">
   <% countAll = 0 %>
   <% countAdmin = 0 %>
-  <% @user.each do |user| %>
+  <% @user.in_groups_of(3) do |group| %>
+    <div class="row">
     <% countAll = countAll+1 %>
-    <li>
-      <%= link_to user.name, user %>
-      <% if current_user.admin? %>
-          <% if user.admin? %>
-              <% countAdmin += 1%>
-          <% end %>
-          <%= link_to "delete", user, method: :delete,
-                                        data: { confirm: "You sure?" } %>
-      <% end %>
-    </li>
+      <% group.each do |user| %>
+        <%if user %>
+          <%if user.admin? %>
+                <div class="panel panel-sucsess">
+                  <div class="panel-heading">
+                    <%= link_to user.name, user %>
+                  </div>
+                  <div class="panel-body">
+                  <% if current_user.admin? %>
+                      <% if user.admin? %>
+                          <% countAdmin += 1%>
+                      <% end %>
+                      <%= link_to "delete", user, method: :delete,
+                                                    data: { confirm: "You sure?" } %>
+                  <% end %>
+                </div>
+                </div>
+         <% else %>
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <%= link_to user.name, user %>
+                </div>
+                <div class="panel-body">
+                <% if current_user.admin? %>
+                    <% if user.admin? %>
+                        <% countAdmin += 1%>
+                    <% end %>
+                    <%= link_to "delete", user, method: :delete,
+                                                  data: { confirm: "You sure?" } %>
+                <% end %>
+              </div>
+              </div>
+        <% end %>
+       <% end %>
+     <% end %>
+    </div>
   <% end %>
 
   <br>
