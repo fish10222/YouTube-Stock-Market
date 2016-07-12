@@ -10,12 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require bootstrap-material-design
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require bootstrap-material-design
-//= require bootstrap
+
 
 
 //this is for Profile tab color switch/
