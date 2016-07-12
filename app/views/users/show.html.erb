@@ -59,7 +59,6 @@
           <h3>Placeholder</h3>
         </div>
         <div class="tab-pane fade in" id="tab3">
-         	 <div class="well", style = "margin:35px">
 			  <% @videos = Video.where(user_id: @user.id)%>
 			  <% if @videos.any? %>
 			    <div class="container">
@@ -98,13 +97,10 @@
 
 			    <% end %>
 				</div>
-			</div>
+
 
         </div>
       </div>
     </div>
-    
+
 </div>
-
-
-
