@@ -10,21 +10,6 @@ class SessionsController < ApplicationController
     @user = User.new
   end
 
-=begin
-  def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
-    else
-      # Create an error message.
-       flash.now[:error] = 'Invalid email/password combination'
-      render 'login'
-    end
-  end
-=end
-
  def create
    if params[:normal_login] #added if statement for normal login. If normal login button is pressed, it will run this code instead of google login
     user = User.find_by(email: params[:session][:email].downcase)
