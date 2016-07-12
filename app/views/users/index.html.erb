@@ -9,9 +9,9 @@
   <% countAdmin = 0 %>
   <% @user.in_groups_of(10) do |group| %>
     <div class="row">
-    <% countAll = countAll+1 %>
       <% group.each do |user| %>
         <%if user %>
+        <% countAll = countAll+1 %>
           <%if user.admin? %>
                 <div class="panel panel-primary" style = "display:inline-block">
                   <div class="panel-heading" style="text-color:white">
