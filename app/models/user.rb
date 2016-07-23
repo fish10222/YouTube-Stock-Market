@@ -2,10 +2,16 @@ class User < ActiveRecord::Base
   has_many :video
   attr_accessor :remember_token
   before_save { self.email = email.downcase }     #seems to work for sign up when i uncommented this, not sure if google login is still working or not
+  has_attached_file :avatar
 
-
-
+  #Avatar Validation
   # validation for normal login
+  has_attached_file :avatar
+  # Validate content type
+  validates_attachment_content_type :avatar, content_type: /\Aimage/
+  # Validate filename
+  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
+
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },

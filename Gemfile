@@ -3,6 +3,8 @@ ruby '2.2.4'
 
 gem 'devise'
 gem 'bootstrap-material-design'
+# Image Attachment gem
+gem "paperclip", "~> 5.0.0"
 # youtube gem
 gem "yt", "~>0.25.39"
 gem 'yourub'
