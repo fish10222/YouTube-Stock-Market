@@ -23,10 +23,18 @@
 <div class="col-lg-6 col-sm-6" style="left: 25%;">
     <div class="card hovercard">
         <div class="card-background">
-            <%= image_tag @user.avatar.url%>
+            <% if @user.avatar.present? %>
+              <%= image_tag @user.avatar.url%>
+            <% else %>
+              <img alt="" src="http://tr3.cbsistatic.com/fly/bundles/techrepubliccore/images/icons/standard/icon-user-default.png">
+            <% end %>
         </div>
         <div class="useravatar">
-            <%= image_tag @user.avatar.url%>
+            <% if @user.avatar.present? %>
+              <%= image_tag @user.avatar.url%>
+            <% else %>
+              <img alt="" src="http://tr3.cbsistatic.com/fly/bundles/techrepubliccore/images/icons/standard/icon-user-default.png">
+            <% end %>
         </div>
         <div class="card-info"> <span class="card-title"><%= @user.name %></span>
 
