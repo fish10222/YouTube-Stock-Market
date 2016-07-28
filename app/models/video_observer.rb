@@ -1,7 +1,6 @@
 class VideoObserver < ActiveRecord::Observer
 
   def before_save(resource)
-    Yt.configuration.api_key = "AIzaSyBe9PXqEf3EdwubcxEU5cHmMq4-PgD8zO4"
     video = Yt::Video.new url: resource.link
     resource.uid = video.id
     resource.title = video.title
