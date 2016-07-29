@@ -11,6 +11,7 @@ gem 'yourub'
 gem 'rails-observers'
 # google login gem
 gem "omniauth-google-oauth2", "~> 0.2.1"
+
 # puma
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
