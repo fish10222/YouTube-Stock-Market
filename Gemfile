@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.2.4'
 
+
+gem "chartkick"
 gem 'devise'
 gem 'bootstrap-material-design'
 # Image Attachment gem
