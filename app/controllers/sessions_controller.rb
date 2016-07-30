@@ -27,7 +27,8 @@ class SessionsController < ApplicationController
       render 'login'
     end
    else
-     user = User.from_omniauth(env["omniauth.auth"]) 
+     user = User.from_omniauth(env["omniauth.auth"]) # I think this line causes an error when
+     # logging in normally without Google login.
      log_in user
      if logged_in?
        flash[:success] = "Welcome, #{user.name}!"
