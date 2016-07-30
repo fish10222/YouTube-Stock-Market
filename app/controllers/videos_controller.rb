@@ -28,6 +28,14 @@ class VideosController < ApplicationController
     redirect_to videos_path
   end
 
+def purchase
+  @video = Video.find(params[:id])
+  @user = current_user
+  @user.capital = @user.capital - @video.price
+  @video.buyers.create(@user)
+  @user.purchases.create(@video.uid)
+  flash[:success] = 'Video Purchased!'
+end
 
   private
     def video_params
