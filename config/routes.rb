@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get    'index'   => 'users#index'
   get 'edit' => 'users#edit'
+  get 'Purchase' =>  'video#purchase'
   resources :users
   resources :videos
   resources :sessions
