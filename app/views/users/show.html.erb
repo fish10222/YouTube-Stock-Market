@@ -61,61 +61,59 @@
     <div class="well">
       <div class="tab-content">
         <!-- First Tab -->
-        <div class="tab-pane fade in " id="tab1">
+        <div class="tab-pane fade in active" id="tab1">
           <h3>$:<%=@user.capital%></h3>
         </div>
         <!-- Second Tab -->
         <div class="tab-pane fade in" id="tab2">
-          <h1>Profile Picture</h1>
-          <h2>
+          <h3>
           <%= form_for(@user) do |f| %>
           <%= f.file_field :avatar %>
           <br>
           <%= f.submit "Submit", class: "btn btn-primary" %>
           <% end %>
-          </h2>
+          </h3>
         </div>
         <!-- Thrid Tab -->
-        <div class="tab-pane fade in" id="tab3" style="overflow:auto">
+        <div class="tab-pane fade in" id="tab3">
+			  <% @videos = Video.where(user_id: @user.id)%>
+			  <% if @videos.any? %>
+			    <div class="container">
+			      <h1>User videos</h1>
+			        <% @videos.in_groups_of(3) do |group| %>
+			          <div class="row">
+			            <% group.each do |video| %>
+			              <% if (video)%>
+			                <div class="col-md-4">
+			                  <div class="yt_video thumbnail">
+			                    <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
+			                                        class: 'img-rounded'),
+			                              "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
+			                    <div class="caption">
+			                      <h5><%= video.title %></h5>
+			                      <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
+			                       <p>
 
-  			  <% @videos = Video.where(user_id: @user.id)%>
-  			  <% if @videos.any? %>
-  			    <div class="container">
-  			      <h1>User videos</h1>
-  			        <% @videos.in_groups_of(3) do |group| %>
-  			          <div class="row">
-  			            <% group.each do |video| %>
-  			              <% if (video)%>
-  			                <div class="col-md-4">
-  			                  <div class="yt_video thumbnail">
-  			                    <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
-  			                                        class: 'img-rounded'),
-  			                              "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
-  			                    <div class="caption">
-  			                      <h5><%= video.title %></h5>
-  			                      <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
-  			                       <p>
+			                        <span>Likes:</span> <%= video.likes %>
+			                        <br>
+			                        <span>Dislikes:</span> <%= video.dislikes %>
+			                        <br>
 
-  			                        <span>Likes:</span> <%= video.likes %>
-  			                        <br>
-  			                        <span>Dislikes:</span> <%= video.dislikes %>
-  			                        <br>
+			                        <%= link_to "delete", video, method: :delete,
+			                                                      data: { confirm: "You sure?" } %>
+			                     </p>
+			                  </div>
+			                </div>
+			              </div>
+			            <% end %>
+			          <% end %>
+			        </div>
+			       <% end %>
+			    <%else%>
+			        <h2>You don't have any videos yet. <br> <%= link_to "Click here to add more!", new_video_path%></h2>
 
-  			                        <%= link_to "delete", video, method: :delete,
-  			                                                      data: { confirm: "You sure?" } %>
-  			                     </p>
-  			                  </div>
-  			                </div>
-  			              </div>
-  			            <% end %>
-  			          <% end %>
-  			        </div>
-  			       <% end %>
-  			    <%else%>
-  			        <h2>You don't have any videos yet. <br> <%= link_to "Click here to add more!", new_video_path%></h2>
-
-  			    <% end %>
-  				</div>
+			    <% end %>
+				</div>
 
 
         </div>
