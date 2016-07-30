@@ -9,7 +9,7 @@ class VideoObserver < ActiveRecord::Observer
     resource.likes = video.like_count
     resource.dislikes = video.dislike_count
     resource.published_at = video.published_at
-    resource.price = video.view_count #since: 2.day.ago, until: 1.day.ago
+    resource.price = -5#video.view_count #since: 2.day.ago, until: 1.day.ago
   rescue Yt::Errors::NoItems
     resource.title = ''
   end
