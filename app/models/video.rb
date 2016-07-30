@@ -4,7 +4,3 @@ class Video < ActiveRecord::Base
   validates :link, presence: true, format: YT_LINK_FORMAT
   validates :link, uniqueness: true
 end
-
-class Video < ApplicationRecord
-  validates :price, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
-end
