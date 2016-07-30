@@ -54,3 +54,4 @@ ActiveRecord::Schema.define(version: 20160725003718) do
 
   add_foreign_key "videos", "users"
 end
+
