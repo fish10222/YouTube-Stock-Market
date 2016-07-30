@@ -8,8 +8,8 @@ class VideoObserver < ActiveRecord::Observer
     resource.dislikes = video.dislike_count
     resource.published_at = video.published_at
     resource.price = -5#video.view_count #since: 2.day.ago, until: 1.day.ago
+    validates :price, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0}
   rescue Yt::Errors::NoItems
     resource.title = ''
   end
-  validates :price, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0}
 end
