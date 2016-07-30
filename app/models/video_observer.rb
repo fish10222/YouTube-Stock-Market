@@ -1,8 +1,8 @@
 class VideoObserver < ActiveRecord::Observer
 
 
-  validates :price, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
-  
+
+
   def before_save(resource)
     video = Yt::Video.new url: resource.link
     resource.uid = video.id
