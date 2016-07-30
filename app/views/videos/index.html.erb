@@ -41,6 +41,9 @@
                                                     data: { confirm: "You sure?" } %>
                       <% end %>
                       <p>Price: <%= video.price %> <%= link_to "Purchase" %>  </p>
+                      <% if @video.buyers.any? %>
+                        <p>This video has been bought<p>
+                      <% end %>
                    </p>
                 </div>
               </div>
