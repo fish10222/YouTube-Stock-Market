@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723172349) do
+ActiveRecord::Schema.define(version: 20160725003718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,10 @@ ActiveRecord::Schema.define(version: 20160723172349) do
     t.integer  "dislikes"
     t.integer  "dailyview"
     t.string   "uid"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
+    t.integer  "price",        default: 100
   end
 
   add_index "videos", ["uid"], name: "index_videos_on_uid", using: :btree
@@ -53,3 +54,4 @@ ActiveRecord::Schema.define(version: 20160723172349) do
 
   add_foreign_key "videos", "users"
 end
+
