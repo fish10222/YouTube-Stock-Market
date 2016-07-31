@@ -22,12 +22,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.save
-      @user.update_attribute(:avatar, params[:user][:avatar])
-      redirect_to @user
+    @user.skip_password_validation = true
+    if @user.save 
+       @user.update_attribute(:avatar, params[:user][:avatar])
+       redirect_to @user
     else
-      flash[:danger] = "Update Failed"
-      redirect_to @user
+       flash[:danger] = "Update Failed" 
+       redirect_to @user
     end
   end
 
