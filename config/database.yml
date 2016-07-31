@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: youtube_development
+  database: youtube__development
 
 test:
   <<: *default
