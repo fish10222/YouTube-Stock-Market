@@ -2,8 +2,7 @@ class User < ActiveRecord::Base
   has_many :video
   attr_accessor :remember_token
   before_save { self.email = email.downcase }     #seems to work for sign up when i uncommented this, not sure if google login is still working or not
-  has_attached_file :avatar,
-                    :default_url => "/assets/images/missing.png"
+  
 
   #Avatar Validation
   # validation for normal login
@@ -19,8 +18,9 @@ class User < ActiveRecord::Base
                       format: { with: VALID_EMAIL_REGEX },
                       uniqueness: { case_sensitive: false }
   has_secure_password if :normal_login?
-  validates :password, presence: true, length: { minimum: 6 } if :normal_login?
 
+  validates :password, presence: true, length: { minimum: 6 }, unless: :skip_password_validation if :normal_login?
+  attr_accessor :skip_password_validation
 
 
   # Google login authentication
