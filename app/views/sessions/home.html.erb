@@ -1,11 +1,7 @@
 <<!DOCTYPE html>
 <html>
-<head>
- 
-  <style>
-  
-  </style>
-</head>
+
+
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -16,15 +12,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">Youtube Stock Market</a>
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav" style="float:right">
-          <li><a href="#section1">Section 1</a></li>
-          <li><%= link_to "Sign up", signup_path %></li>
-          <li><a href="#section2">Section 2</a></li>
-          <li><a href="#section3">Section 3</a></li>
+          <li><a href="#section1">Welcome</a></li>
+          <li><a href="#section2">About</a></li>
+          <li><a href="#section3">Creators</a></li>
         </ul>
       </div>
     </div>
@@ -32,16 +27,53 @@
 </nav>    
 
 <div id="section1" class="container-fluid">
-  <h1>Section 1</h1>
-  <p>Click on the different Section links in the navbar to see the smooth scrolling effect.</p>
+	<div class="welcome">
+	  <h1 class="title">Welcome to Youtube stock market</h1>
+		<div class="description">
+		   <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 text-center">
+					<p>Simple Stock Market Simulator</p>
+		  			<a href="#section2" class="btn btn-primary btn-xl round ">Find Out More</a>
+                </div>
+                <div class="col-lg-6 col-md-6 text-center">
+            	    <p>Already have an accout?</p>
+					<a href="login" class="btn btn-primary btn-xl round ">Log in Here</a>
+                </div>
+               
+            </div>
+		</div>
+	  </div>
+  	</div>
 </div>
+
 <div id="section2" class="container-fluid">
-  <h1>Section 2</h1>
-  <p>Click on the different Section links in the navbar to see the smooth scrolling effect.</p>
+	<div class="about">
+	  <h1 class="title">About</h1>
+	  <p class="description2">Insert Description Here.</p>
+	  <a href="users/new" class="btn btn-primary btn-xl round ">Sign Up Here</a>
+	</div>
 </div>
 <div id="section3" class="container-fluid">
-  <h1>Section 3</h1>
-  <p>Click on the different Section links in the navbar to see the smooth scrolling effect.</p>
+		<div class="description3">
+		   <div class="container">
+	            <div class="row">
+	                <div class="col-lg-4 col-md-6 text-center">
+						<p style="font-size: 30px;">Henry Meng</p>
+						<p>Email: fma29@sfu.ca</p>
+						<p>Student Number:301192510</p>
+	                </div>
+	                <div class="col-lg-4 col-md-6 text-center">
+	            	    <p style="font-size: 30px;">Rodney</p>
+	            	    <p>Please edit this</p>
+	                </div>
+	                <div class="col-lg-4 col-md-6 text-center">
+	            	    <p style="font-size: 30px;">Jayden</p>
+	            	    <p>Please edit this</p>
+	                </div>
+	            </div>
+			</div>
+		</div>
 </div>
 
 
