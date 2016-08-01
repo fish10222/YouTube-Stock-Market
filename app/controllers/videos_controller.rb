@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   include SessionsHelper
   include ApplicationHelper
-
+  include VideosHelper
   def index
     @videos = Video.all.order('created_at DESC')
   end
