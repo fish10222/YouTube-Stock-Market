@@ -8,12 +8,12 @@ class User < ActiveRecord::Base
   attr_accessor :skip_avatar_validation
   #Avatar Validation
   # validation for normal login
-  has_attached_file :avatar, unless :skip_avatar_validation
+  has_attached_file :avatar, unless: :skip_avatar_validation
   # Validate content type
-  validates :avatar, attachment_presence: true, unless :skip_avatar_validation
-  validates_attachment_content_type :avatar, content_type: /\Aimage/, unless :skip_avatar_validation
+  validates :avatar, attachment_presence: true, unless: :skip_avatar_validation
+  validates_attachment_content_type :avatar, content_type: /\Aimage/, unless: :skip_avatar_validation
   # Validate filename
-  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/], unless :skip_avatar_validation
+  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/], unless: :skip_avatar_validation
 NoMethodError
 
   validates :name,  presence: true, length: { maximum: 50 }
@@ -36,6 +36,7 @@ NoMethodError
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.password = Devise.friendly_token[0,20]
+      user.skip_avatar_validation=true
       user.save!
     end
   end
@@ -68,5 +69,5 @@ NoMethodError
   def forget
     update_attribute(:remember_digest, nil)
   end
-=>
+
 end

@@ -27,14 +27,14 @@ class SessionsController < ApplicationController
       render 'login'
     end
    else
-     user = User.from_omniauth(env["omniauth.auth"]) 
+     user = User.from_omniauth(env["omniauth.auth"])
      log_in user
      if logged_in?
        flash[:success] = "Welcome, #{user.name}!"
      else
        flash[:warning] = "There was an error while trying to authenticate you..."
      end
-     redirect_to root_path
+     redirect_to user
    end
  end
 
