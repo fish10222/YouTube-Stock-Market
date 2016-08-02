@@ -10,7 +10,7 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object:@user %>
 
-      <%= f.label :name %>
+      <%= f.label :name, "Enter your nickname" %>
       <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :email %>
@@ -19,7 +19,7 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Type Your Password Again" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <br>
