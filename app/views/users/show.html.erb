@@ -66,9 +66,10 @@
         </div>
         <!-- Second Tab -->
         <div class="tab-pane fade in" id="tab2">
+          <h2>Upload your Profile Picture</h2>
           <h3>
           <%= form_for(@user) do |f| %>
-          <%= f.file_field :avatar %>
+          <%= f.file_field :avatar, class: "btn btn-primary" %>
           <br>
           <%= f.submit "Submit", class: "btn btn-primary" %>
           <% end %>
@@ -99,7 +100,7 @@
   			                        <span>Dislikes:</span> <%= video.dislikes %>
   			                        <br>
 
-  			                        <%= link_to "delete", video, method: :delete,
+  			                        <p>Price: <%= video.price %></p><%= link_to "delete", video, method: :delete,
   			                                                      data: { confirm: "You sure?" } %>
   			                     </p>
   			                  </div>

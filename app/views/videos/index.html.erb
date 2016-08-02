@@ -34,13 +34,13 @@
                       <% upid = video.user_id%>
                       <% uploader = User.find_by(id: upid)%>
                       <% if (uploader) %>
-                        <p>Uploader: <%= link_to uploader.name, uploader %> </p>
+                        <p>Owned By: <%= link_to uploader.name, uploader %> </p>
                       <% end %>
                       <% if @user.admin? %>
                       <%= link_to "delete", video, method: :delete,
                                                     data: { confirm: "You sure?" } %>
                       <% end %>
-                      <p>Price: <%= video.price %> <%= link_to "Purchase" %>  </p>
+                      <p>Price: <%= video.price %> <%= link_to "Purchase", video, method: :PATCH %></p>
                    </p>
                 </div>
               </div>
