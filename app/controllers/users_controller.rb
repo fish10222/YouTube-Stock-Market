@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.skip_password_validation = true
-    if @user.save 
+    if @user.save
        @user.update_attribute(:avatar, params[:user][:avatar])
        redirect_to @user
     else

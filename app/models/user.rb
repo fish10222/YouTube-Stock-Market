@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   # validation for normal login
   has_attached_file :avatar
   # Validate content type
+  validates :avatar, attachment_presence: true
   validates_attachment_content_type :avatar, content_type: /\Aimage/
   # Validate filename
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
