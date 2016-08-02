@@ -5,15 +5,16 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }     #seems to work for sign up when i uncommented this, not sure if google login is still working or not
 
   attr_accessor :skip_password_validation
+  attr_accessor :skip_avatar_validation
   #Avatar Validation
   # validation for normal login
-  has_attached_file :avatar unless :skip_avatar_validation
+  has_attached_file :avatar, unless: :skip_avatar_validation
   # Validate content type
-  validates :avatar, attachment_presence: true unless :skip_avatar_validation
-  validates_attachment_content_type :avatar, content_type: /\Aimage/ unless :skip_avatar_validation
+  validates :avatar, attachment_presence: true, unless: :skip_avatar_validation
+  validates_attachment_content_type :avatar, content_type: /\Aimage/, unless: :skip_avatar_validation
   # Validate filename
-  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/] unless :skip_avatar_validation
-
+  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/], unless: :skip_avatar_validation
+NoMethodError
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -22,6 +23,7 @@ class User < ActiveRecord::Base
   has_secure_password if :normal_login?
 
   validates :password, presence: true, length: { minimum: 6 }, unless: :skip_password_validation if :normal_login?
+
 
   # Google login authentication
   def self.from_omniauth(auth)
