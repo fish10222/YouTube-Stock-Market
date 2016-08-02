@@ -26,14 +26,14 @@
             <% if @user.avatar.present? %>
               <%= image_tag @user.avatar.url%>
             <% else %>
-              <img alt="" src="http://tr3.cbsistatic.com/fly/bundles/techrepubliccore/images/icons/standard/icon-user-default.png">
+              <%= image_tag("missing.png") %>
             <% end %>
         </div>
         <div class="useravatar">
             <% if @user.avatar.present? %>
               <%= image_tag @user.avatar.url%>
             <% else %>
-              <img alt="" src="http://tr3.cbsistatic.com/fly/bundles/techrepubliccore/images/icons/standard/icon-user-default.png">
+              <%= image_tag("missing.png") %>
             <% end %>
         </div>
         <div class="card-info"> <span class="card-title"><%= @user.name %></span>
@@ -75,44 +75,44 @@
           </h3>
         </div>
         <!-- Thrid Tab -->
-        <div class="tab-pane fade in" id="tab3">
-			  <% @videos = Video.where(user_id: @user.id)%>
-			  <% if @videos.any? %>
-			    <div class="container">
-			      <h1>User videos</h1>
-			        <% @videos.in_groups_of(3) do |group| %>
-			          <div class="row">
-			            <% group.each do |video| %>
-			              <% if (video)%>
-			                <div class="col-md-4">
-			                  <div class="yt_video thumbnail">
-			                    <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
-			                                        class: 'img-rounded'),
-			                              "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
-			                    <div class="caption">
-			                      <h5><%= video.title %></h5>
-			                      <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
-			                       <p>
+        <div class="tab-pane fade in" id="tab3" style="overflow:auto">
+  			  <% @videos = Video.where(user_id: @user.id)%>
+  			  <% if @videos.any? %>
+  			    <div class="container">
+  			      <h1>User videos</h1>
+  			        <% @videos.in_groups_of(3) do |group| %>
+  			          <div class="row">
+  			            <% group.each do |video| %>
+  			              <% if (video)%>
+  			                <div class="col-md-4">
+  			                  <div class="yt_video thumbnail">
+  			                    <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
+  			                                        class: 'img-rounded'),
+  			                              "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
+  			                    <div class="caption">
+  			                      <h5><%= video.title %></h5>
+  			                      <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
+  			                       <p>
 
-			                        <span>Likes:</span> <%= video.likes %>
-			                        <br>
-			                        <span>Dislikes:</span> <%= video.dislikes %>
-			                        <br>
+  			                        <span>Likes:</span> <%= video.likes %>
+  			                        <br>
+  			                        <span>Dislikes:</span> <%= video.dislikes %>
+  			                        <br>
 
-			                        <%= link_to "delete", video, method: :delete,
-			                                                      data: { confirm: "You sure?" } %>
-			                     </p>
-			                  </div>
-			                </div>
-			              </div>
-			            <% end %>
-			          <% end %>
-			        </div>
-			       <% end %>
-			    <%else%>
-			        <h2>You don't have any videos yet. <br> <%= link_to "Click here to add more!", new_video_path%></h2>
+  			                        <%= link_to "delete", video, method: :delete,
+  			                                                      data: { confirm: "You sure?" } %>
+  			                     </p>
+  			                  </div>
+  			                </div>
+  			              </div>
+  			            <% end %>
+  			          <% end %>
+  			        </div>
+  			       <% end %>
+  			    <%else%>
+  			        <h2>You don't have any videos yet. <br> <%= link_to "Click here to add more!", new_video_path%></h2>
 
-			    <% end %>
+  			    <% end %>
 				</div>
 
 
@@ -121,3 +121,13 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  $(".btn-pref .btn").click(function () {
+      $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+      // $(".tab").addClass("active"); // instead of this do the below 
+      $(this).removeClass("btn-default").addClass("btn-primary");   
+  });
+});
+</script>

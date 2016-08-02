@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   include SessionsHelper
   include ApplicationHelper
-
+  include VideosHelper
   def index
     @videos = Video.all.order('created_at DESC')
   end
@@ -26,6 +26,10 @@ class VideosController < ApplicationController
     Video.find(params[:id]).destroy
     flash[:success] = "Video deleted"
     redirect_to videos_path
+  end
+
+  def update
+
   end
 
   private
