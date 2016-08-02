@@ -8,13 +8,14 @@ class User < ActiveRecord::Base
   attr_accessor :skip_avatar_validation
   #Avatar Validation
   # validation for normal login
-  has_attached_file :avatar, unless: :skip_avatar_validation
+  has_attached_file :avatar, unless :skip_avatar_validation
   # Validate content type
-  validates :avatar, attachment_presence: true, unless: :skip_avatar_validation
-  validates_attachment_content_type :avatar, content_type: /\Aimage/, unless: :skip_avatar_validation
+  validates :avatar, attachment_presence: true, unless :skip_avatar_validation
+  validates_attachment_content_type :avatar, content_type: /\Aimage/, unless :skip_avatar_validation
   # Validate filename
-  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/], unless: :skip_avatar_validation
+  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/], unless :skip_avatar_validation
 NoMethodError
+
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -37,7 +38,7 @@ NoMethodError
       user.password = Devise.friendly_token[0,20]
       user.save!
     end
- end
+  end
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -67,5 +68,5 @@ NoMethodError
   def forget
     update_attribute(:remember_digest, nil)
   end
-
+=>
 end
