@@ -27,13 +27,14 @@ class UsersController < ApplicationController
        @user.update_attribute(:avatar, params[:user][:avatar])
        redirect_to @user
     else
-       flash[:danger] = "Update Failed" 
+       flash[:danger] = "Update Failed"
        redirect_to @user
     end
   end
 
   def create
     @user = User.new(user_params)
+    @user.skip_avatar_validation = true
     if @user.save
       user = @user
       log_in user

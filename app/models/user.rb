@@ -3,16 +3,16 @@ class User < ActiveRecord::Base
   has_many :purchases, :class_name => 'Video', :foreign_key => 'uid'
   attr_accessor :remember_token
   before_save { self.email = email.downcase }     #seems to work for sign up when i uncommented this, not sure if google login is still working or not
-  
 
+  attr_accessor :skip_password_validation
   #Avatar Validation
   # validation for normal login
-  has_attached_file :avatar
+  has_attached_file :avatar unless :skip_avatar_validation
   # Validate content type
-  validates :avatar, attachment_presence: true
-  validates_attachment_content_type :avatar, content_type: /\Aimage/
+  validates :avatar, attachment_presence: true unless :skip_avatar_validation
+  validates_attachment_content_type :avatar, content_type: /\Aimage/ unless :skip_avatar_validation
   # Validate filename
-  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
+  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/] unless :skip_avatar_validation
 
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -22,14 +22,11 @@ class User < ActiveRecord::Base
   has_secure_password if :normal_login?
 
   validates :password, presence: true, length: { minimum: 6 }, unless: :skip_password_validation if :normal_login?
-  attr_accessor :skip_password_validation
-
 
   # Google login authentication
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
-      user.avatar = auth.image
       user.uid = auth.uid
       user.name = auth.info.name
       user.email = auth.info.email
