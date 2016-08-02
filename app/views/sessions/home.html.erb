@@ -37,8 +37,13 @@
 		  			<a href="#section2" class="btn btn-primary btn-xl round ">Find Out More</a>
                 </div>
                 <div class="col-lg-6 col-md-6 text-center">
-            	    <p>Already have an accout?</p>
-					<a href="login" class="btn btn-primary btn-xl round ">Log in Here</a>
+                	<% if logged_in? %>
+	            	    <p>Go to Profile</p>
+                    <%= link_to "Go to Profile", current_user, class: "btn btn-primary btn-xl round"%>
+        					<%else %>
+                    <p>Already have an accout?</p>
+                    <%= link_to "Log in Here", login_path, class: "btn btn-primary btn-xl round" %>
+        					<%end%>
                 </div>
                
             </div>
@@ -50,8 +55,13 @@
 <div id="section2" class="container-fluid">
 	<div class="about">
 	  <h1 class="title">About</h1>
-	  <p class="description2">Insert Description Here.</p>
-	  <a href="users/new" class="btn btn-primary btn-xl round ">Sign Up Here</a>
+	  <p class="description2">YSX is a Stock Market simulator that uses a YouTube video’s views over the past day as a currency. Users are able to buy and sell YouTube videos they believe will rise in popularity to showcase their knowledge of what videos are the next hottest thing! YSX is ideal for YouTube users who enjoy browsing YouTube videos or sharing them with friends. </p>
+	  <div class="container" style="margin-top: 30px;">
+	  	<div class="row">
+	  		<img src="assets/Sample1.jpg" class="img-rounded" width="60%" height="60%">
+	  	</div>
+	  </div>
+	  <%= link_to "Sign Up Here", signup_path, class: "btn btn-primary btn-xl round", style: "margin-top: 30px" %>
 	</div>
 </div>
 <div id="section3" class="container-fluid">
@@ -75,6 +85,7 @@
 			</div>
 		</div>
 </div>
+
 
 
 <script>

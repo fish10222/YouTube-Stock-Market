@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get    'signup'  => 'users#new'
   get    'home'    => 'sessions#home'
   get    'login'   => 'sessions#login'
+  #get    'show'    => 'users#show'
   get 'home' => 'sessions#home'
   get 'auth/:provider/callback' => 'sessions#create'
   get 'auth/failure', to: redirect('/')
