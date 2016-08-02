@@ -26,14 +26,14 @@
             <% if @user.avatar.present? %>
               <%= image_tag @user.avatar.url%>
             <% else %>
-              <img alt="" src="http://tr3.cbsistatic.com/fly/bundles/techrepubliccore/images/icons/standard/icon-user-default.png">
+              <%= image_tag("missing.png") %>
             <% end %>
         </div>
         <div class="useravatar">
             <% if @user.avatar.present? %>
               <%= image_tag @user.avatar.url%>
             <% else %>
-              <img alt="" src="http://tr3.cbsistatic.com/fly/bundles/techrepubliccore/images/icons/standard/icon-user-default.png">
+              <%= image_tag("missing.png") %>
             <% end %>
         </div>
         <div class="card-info"> <span class="card-title"><%= @user.name %></span>
