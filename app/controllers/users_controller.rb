@@ -21,15 +21,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.skip_password_validation = true
-    @user.skip_avatar_validation = true
-    if @user.save
-       @user.update_attribute(:avatar, params[:user][:avatar])
-       redirect_to @user
-    else
-       flash[:danger] = "Update Failed"
-       redirect_to @user
+    if params[:update_avatar]
+      @user = User.find(params[:id])
+      @user.skip_password_validation = true
+      #@user.skip_avatar_validation = true
+      if @user.save
+         @user.update_attribute(:avatar, params[:user][:avatar])
+         redirect_to @user
+      else
+         flash[:danger] = "Update Failed"
+         redirect_to @user
+      end
     end
   end
 

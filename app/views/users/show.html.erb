@@ -55,7 +55,7 @@
           <%= form_for(@user) do |f| %>
           <%= f.file_field :avatar, class: "btn btn-primary" %>
           <br>
-          <%= f.submit "Submit", class: "btn btn-primary" %>
+          <%= f.submit 'Submit', class: "btn btn-primary", name: 'update_avatar'%>
           <% end %>
           </h3>
         <%else%>
